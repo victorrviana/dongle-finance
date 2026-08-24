@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dongle Finance | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho do App -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>$</span> Dongle Finance
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">Dashboard</a>
+                <a href="estimativas.html" class="nav-link">Estimativas</a>
+                <a href="relatorios.html" class="nav-link">Relatórios</a>
+                <a href="configuracoes.html" class="nav-link">Configurações</a>
+            </nav>
+
+            <a href="#modal-transacao" class="btn-primary">+ Nova Transação</a>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <!-- 1. Banner de Alerta -->
+        <aside class="alert-banner">
+            <div class="alert-content">
+                <span class="alert-icon">⚠️</span>
+                <p><strong>Atenção:</strong> Você possui 2 contas pendentes que vencem esta semana.</p>
+            </div>
+            <a href="estimativas.html" class="alert-link">Ver contas &rarr;</a>
+        </aside>
+
+        <!-- 2. Cards de Resumo Financeiro -->
+        <section class="cards-grid">
+            <article class="card card-income">
+                <header class="card-header">
+                    <span>Entradas</span>
+                    <span class="icon">↑</span>
+                </header>
+                <p class="card-amount" id="total-entradas">R$ 5.000,00</p>
+            </article>
+
+            <article class="card card-expense">
+                <header class="card-header">
+                    <span>Saídas</span>
+                    <span class="icon">↓</span>
+                </header>
+                <p class="card-amount" id="total-saidas">R$ 1.850,00</p>
+            </article>
+
+            <article class="card card-total">
+                <header class="card-header">
+                    <span>Saldo Total</span>
+                    <span class="icon">=</span>
+                </header>
+                <p class="card-amount" id="saldo-total">R$ 3.150,00</p>
+            </article>
+        </section>
+
+        <!-- 3. Tabela de Extrato / Histórico -->
+        <section class="table-section">
+            <div class="table-header">
+                <div>
+                    <h2>Histórico de Transações</h2>
+                    <span class="badge">Últimos lançamentos</span>
+                </div>
+
+                <div class="table-filters">
+                    <input type="text" placeholder="Buscar por descrição..." class="input-search">
+                    <select class="select-filter">
+                        <option value="todos">Todas</option>
+                        <option value="entrada">Entradas</option>
+                        <option value="saida">Saídas</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Categoria</th>
+                            <th>Data</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-transacoes">
+                        <tr class="income">
+                            <td class="description">Desenvolvimento Web Freelance</td>
+                            <td class="amount">R$ 3.500,00</td>
+                            <td><span class="tag-category">Trabalho</span></td>
+                            <td>12/08/2026</td>
+                            <td><button class="btn-delete" title="Excluir Transação">✕</button></td>
+                        </tr>
+                        <tr class="expense">
+                            <td class="description">Supermercado</td>
+                            <td class="amount">- R$ 450,00</td>
+                            <td><span class="tag-category">Alimentação</span></td>
+                            <td>14/08/2026</td>
+                            <td><button class="btn-delete" title="Excluir Transação">✕</button></td>
+                        </tr>
+                        <tr class="expense">
+                            <td class="description">Assinatura de Internet</td>
+                            <td class="amount">- R$ 120,00</td>
+                            <td><span class="tag-category">Contas</span></td>
+                            <td>15/08/2026</td>
+                            <td><button class="btn-delete" title="Excluir Transação">✕</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4. Seção FAQ (Details/Summary) -->
+        <section class="faq-section">
+            <h3>Dúvidas Frequentes</h3>
+            
+            <details class="faq-item">
+                <summary>Como funciona a estimativa de saldo?</summary>
+                <p>A estimativa pega seu saldo atual e calcula a projeção somando os recebimentos futuros pendentes e subtraindo as contas a pagar.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Os meus dados ficam salvos?</summary>
+                <p>Sim, ao final da implementação com JavaScript, todas as suas transações ficam salvas de forma segura diretamente no seu navegador (LocalStorage).</p>
+            </details>
+        </section>
+    </main>
+
+    <!-- Modal de Cadastro com Rádios Estilizados -->
+    <div id="modal-transacao" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Cadastrar Transação</h3>
+                <a href="#" class="btn-close">&times;</a>
+            </div>
+
+            <form id="form-transacao">
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" id="descricao" required placeholder="Ex: Salário, Aluguel, Farmácia">
+                </div>
+
+                <!-- Tipo em formato de abas (Radio Buttons) -->
+                <div class="form-group">
+                    <label>Tipo de Transação</label>
+                    <div class="radio-group">
+                        <input type="radio" id="tipo-entrada" name="tipo" value="entrada" checked>
+                        <label for="tipo-entrada" class="radio-label income-radio">↑ Entrada</label>
+
+                        <input type="radio" id="tipo-saida" name="tipo" value="saida">
+                        <label for="tipo-saida" class="radio-label expense-radio">↓ Saída</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="valor">Valor (R$)</label>
+                        <input type="number" id="valor" step="0.01" required placeholder="0,00">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="categoria">Categoria</label>
+                        <select id="categoria" required>
+                            <option value="alimentacao">Alimentação</option>
+                            <option value="trabalho">Trabalho</option>
+                            <option value="moradia">Moradia</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="lazer">Lazer</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="status">Situação</label>
+                        <select id="status" required>
+                            <option value="pago">Concluído / Pago</option>
+                            <option value="pendente">Pendente / Futuro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data">Data de Vencimento/Pagamento</label>
+                        <input type="date" id="data" required>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="#" class="btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn-primary">Salvar Transação</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

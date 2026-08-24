@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dongle Finance | Relatórios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>$</span> Dongle Finance
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="estimativas.html" class="nav-link">Estimativas</a>
+                <a href="relatorios.html" class="nav-link active">Relatórios</a>
+                <a href="configuracoes.html" class="nav-link">Configurações</a>
+            </nav>
+
+            <a href="index.html#modal-transacao" class="btn-primary">+ Nova Transação</a>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <h2>Análise de Gastos</h2>
+
+        <div class="reports-grid">
+            <section class="card">
+                <header class="card-header">
+                    <span>Gastos por Categoria</span>
+                    <span class="badge">Fevereiro</span>
+                </header>
+
+                <div class="category-progress">
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Alimentação</span>
+                            <span>R$ 450,00 (50%)</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%; background-color: #EF4444;"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Contas & Serviços</span>
+                            <span>R$ 320,00 (35%)</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 35%; background-color: #F59E0B;"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Lazer</span>
+                            <span>R$ 135,00 (15%)</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 15%; background-color: #3B82F6;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <header class="card-header">
+                    <span>Metas de Economia</span>
+                    <span class="badge">Anual</span>
+                </header>
+
+                <div class="category-progress">
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Reserva de Emergência</span>
+                            <span>R$ 3.150 / R$ 10.000</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 31.5%; background-color: #10B981;"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Viagem de Fim de Ano</span>
+                            <span>R$ 1.200 / R$ 4.000</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%; background-color: #6366F1;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>

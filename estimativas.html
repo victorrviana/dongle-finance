@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dongle Finance | Estimativas Futuras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>$</span> Dongle Finance
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="estimativas.html" class="nav-link active">Estimativas</a>
+                <a href="relatorios.html" class="nav-link">Relatórios</a>
+                <a href="configuracoes.html" class="nav-link">Configurações</a>
+            </nav>
+
+            <a href="index.html#modal-transacao" class="btn-primary">+ Nova Transação</a>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <h2>Previsão Financeira & Contas Futuras</h2>
+
+        <!-- Cards com o Cálculo da Estimativa -->
+        <section class="cards-grid" style="margin-top: 1.5rem;">
+            <article class="card">
+                <header class="card-header">
+                    <span>Saldo Atual</span>
+                    <span class="icon">=</span>
+                </header>
+                <p class="card-amount" id="saldo-atual-estimativa">R$ 3.150,00</p>
+            </article>
+
+            <article class="card">
+                <header class="card-header">
+                    <span>Futuros A Receber (+)</span>
+                    <span class="icon">↑</span>
+                </header>
+                <p class="card-amount" style="color: var(--income);">+ R$ 2.500,00</p>
+            </article>
+
+            <article class="card">
+                <header class="card-header">
+                    <span>Futuros A Pagar (-)</span>
+                    <span class="icon">↓</span>
+                </header>
+                <p class="card-amount" style="color: var(--expense);">- R$ 1.200,00</p>
+            </article>
+
+            <article class="card card-projected">
+                <header class="card-header">
+                    <span>Estimativa de Saldo</span>
+                    <span class="icon">⌛</span>
+                </header>
+                <p class="card-amount" id="saldo-projetado">R$ 4.450,00</p>
+            </article>
+        </section>
+
+        <!-- Tabelas de Lançamentos Futuros -->
+        <div class="future-grid">
+            
+            <!-- Contas Futuras a Pagar -->
+            <section class="table-section" style="margin-top: 0;">
+                <div class="table-header">
+                    <div>
+                        <h2>Contas Futuras (A Pagar)</h2>
+                        <span class="badge">Despesas previstas</span>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Valor</th>
+                                <th>Vencimento</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="expense">
+                                <td class="description">Fatura do Cartão</td>
+                                <td class="amount">- R$ 850,00</td>
+                                <td>05/03/2026</td>
+                                <td><span class="status-badge status-pending">Pendente</span></td>
+                            </tr>
+                            <tr class="expense">
+                                <td class="description">Aluguel</td>
+                                <td class="amount">- R$ 350,00</td>
+                                <td>10/03/2026</td>
+                                <td><span class="status-badge status-pending">Pendente</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Recebimentos Futuros -->
+            <section class="table-section" style="margin-top: 0;">
+                <div class="table-header">
+                    <div>
+                        <h2>Recebimentos Futuros (A Receber)</h2>
+                        <span class="badge">Entradas previstas</span>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Valor</th>
+                                <th>Previsão</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="income">
+                                <td class="description">Projeto Cliente X</td>
+                                <td class="amount">R$ 2.500,00</td>
+                                <td>01/03/2026</td>
+                                <td><span class="status-badge status-pending">Pendente</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
